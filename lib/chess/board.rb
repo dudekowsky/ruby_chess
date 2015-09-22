@@ -41,5 +41,6 @@ class Board
     old_tile.figure = Empty.new
     figure.x = target[0]
     figure.y = target[1]
+    true
   end
 end

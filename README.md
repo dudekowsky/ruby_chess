@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Just clone repo.
 
 ## Usage
-  
+
     $ ruby "lib/play.rb"
 
 have fun!
@@ -22,7 +22,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chess.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dudekowsky/chess.
 
 
 ## License

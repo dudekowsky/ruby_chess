@@ -1,3 +1,3 @@
 require_relative "./chess"
-
-Game.new.start
+game = Game.new
+game.start

@@ -29,6 +29,10 @@ class Board
     puts ""
     puts "  a b c d e f g h"
   end
+  def production_move(origin, target, player_color)
+    return false unless @board[origin[0],origin[1]].figure.owner == player_color
+    make_move(origin, target)
+  end
 
   def make_move(origin, target, hypothetical = false)
     #set variables and check legality of move
@@ -58,8 +62,14 @@ class Board
       figure.x        = save[:fig_x_coord]
       figure.y        = save[:fig_y_coord]
       return false
-    end
 
+    end
+    if hypothetical
+      old_tile.figure = save[:origin_figure]
+      new_tile.figure = save[:target_figure]
+      figure.x        = save[:fig_x_coord]
+      figure.y        = save[:fig_y_coord]
+    end
     return true
   end
 

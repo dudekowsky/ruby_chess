@@ -5,12 +5,16 @@ class Empty
   def legal_move?(origin,target,board)
     false
   end
+  def name
+    :none
+  end
 
 end
 class Figure
   attr_reader :sign, :owner
-  attr_accessor :x, :y
+  attr_accessor :x, :y, :moves
   def initialize(x,y)
+    @moves = 0
     @x = x
     @y = y
     @owner = find_owner(y)
@@ -50,8 +54,7 @@ class Rook < Figure
       return @sign = "\u265C"
     end
   end
-  def legal_move?(origin, target, board)
-
+  def possible_moves(origin, board)
     output = []
     i,j = origin[0],origin[1]
     #adds all possible tiles on the top
@@ -89,7 +92,12 @@ class Rook < Figure
       output.push([i,j])
       break if board[i,j].figure.owner == other_owner
     end
-    return true if output.include?(target)
+    output
+  end
+  def legal_move?(origin, target, board)
+
+
+    return true if possible_moves(origin, board).include?(target)
     false
   end
 end
@@ -109,13 +117,13 @@ class Pawn < Figure
       return "\u265F"
     end
   end
-  def legal_move?(origin, target, board)
+  def possible_moves(origin, board)
     output = []
     y = origin[0]
     x = origin[1]
     #white pawn goes into other direction than black pawn
     if @owner == "black"
-      puts "black pawn"
+      # puts "black pawn"
       #move downward two if first move
       output.push([y+2,x]) if !board[y+2,x].nil? && (board[y+1,x].figure.owner == :none &&
                               board[y+2,x].figure.owner == :none && (@moves == 0))
@@ -126,7 +134,7 @@ class Pawn < Figure
       #take right-downward
       output.push([y+1,x+1]) if !board[y+1,x+1].nil? && board[y+1,x+1].figure.owner == other_owner
     else
-      puts "white pawn"
+      # puts "white pawn"
       #move upward two if first move
       output.push([y-2,x]) if !board[y-2,x].nil? && (board[y-2,x].figure.owner == :none) &&
                               (@moves == 0)
@@ -138,8 +146,12 @@ class Pawn < Figure
       output.push([y-1,x+1]) if !board[y-1,x+1].nil? && board[y-1,x+1].figure.owner == other_owner
     end
 
-    @moves += 1 if output.include?(target)
-    return true if output.include?(target)
+
+    output
+  end
+  def legal_move?(origin, target, board)
+
+    return true if possible_moves(origin, board).include?(target)
     false
   end
 
@@ -156,8 +168,7 @@ class Bishop < Figure
     end
   end
 
-  def legal_move?(origin, target, board)
-
+  def possible_moves(origin, board)
     output = []
     i,j = origin[0],origin[1]
     #adds all possible tiles on the top-left
@@ -203,7 +214,12 @@ class Bishop < Figure
       output.push([i,j])
       break if board[i,j].figure.owner == other_owner
     end
-    return true if output.include?(target)
+    output
+  end
+
+  def legal_move?(origin, target, board)
+
+    return true if possible_moves(origin, board).include?(target)
     false
   end
 
@@ -219,7 +235,7 @@ class Knight < Figure
       return "\u265E"
     end
   end
-  def legal_move?(origin, target, board)
+  def possible_moves(origin, board)
     output = []
     y = origin[0]
     x = origin[1]
@@ -227,11 +243,15 @@ class Knight < Figure
     relative_moves.each do |relmove|
       total_move = [ relmove[0] + y, relmove[1] + x ]
       next if total_move[0] > 7 || total_move[0] < 0 || total_move[1] > 7 || total_move[1] < 0
-      puts total_move.to_s
+      # puts total_move.to_s
       output.push(total_move) if !(board[total_move[0],total_move[1]].figure.owner == @owner)
-      puts output.to_s
+      # puts output.to_s
     end
-    return true if output.include?(target)
+    output
+  end
+  def legal_move?(origin, target, board)
+
+    return true if possible_moves(origin,board).include?(target)
     false
   end
 end
@@ -246,7 +266,7 @@ class King < Figure
       return "\u265A"
     end
   end
-  def legal_move?(origin, target, board)
+  def possible_moves(origin, board)
     output = []
     y = origin[0]
     x = origin[1]
@@ -254,11 +274,16 @@ class King < Figure
     relative_moves.each do |relmove|
       total_move = [ relmove[0] + y, relmove[1] + x ]
       next if total_move[0] > 7 || total_move[0] < 0 || total_move[1] > 7 || total_move[1] < 0
-      puts total_move.to_s
+      # puts total_move.to_s
       output.push(total_move) if !(board[total_move[0],total_move[1]].figure.owner == @owner)
-      puts output.to_s
+      # puts output.to_s
     end
-    return true if output.include?(target)
+    output
+  end
+
+  def legal_move?(origin, target, board)
+
+    return true if possible_moves(origin, board).include?(target)
     false
   end
 end
@@ -273,8 +298,7 @@ class Queen < Figure
       return "\u265B"
     end
   end
-  def legal_move?(origin, target, board)
-
+  def possible_moves(origin, board)
     output = []
 
     #adds all possible tiles on the top-left
@@ -290,7 +314,7 @@ class Queen < Figure
 
       break if board[i,j].figure.owner == other_owner
     end
-    puts output.to_s
+    # puts output.to_s
     #add all possible tiles on the bottom-left
     i,j = origin[0],origin[1]
     while true
@@ -302,7 +326,7 @@ class Queen < Figure
       output.push([i,j])
       break if board[i,j].figure.owner == other_owner
     end
-    puts output.to_s
+    # puts output.to_s
     #add all possible tiles to the top-right
     i,j = origin[0],origin[1]
     while true
@@ -326,8 +350,8 @@ class Queen < Figure
       output.push([i,j])
       break if board[i,j].figure.owner == other_owner
     end
-    puts "schräg abgehakt"
-    puts output.to_s
+    # puts "schräg abgehakt"
+    # puts output.to_s
     #adds all possible tiles on the top
     i,j = origin[0],origin[1]
     while true
@@ -367,10 +391,15 @@ class Queen < Figure
       output.push([i,j])
       break if board[i,j].figure.owner == other_owner
     end
-    puts "gerade abgehakt"
-    puts output.to_s
-    puts target.to_s
-    return true if output.include?(target)
+    output
+
+  end
+  def legal_move?(origin, target, board)
+
+        # puts "gerade abgehakt"
+    # puts output.to_s
+    # puts target.to_s
+    return true if possible_moves(origin, board).include?(target)
     false
   end
 end

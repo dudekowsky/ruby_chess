@@ -1,0 +1,621 @@
+---
+:board: !ruby/object:Board
+  board: !ruby/object:Matrix
+    rows:
+    - - &3 !ruby/object:Tile
+        x: 0
+        y: 0
+        color: "■"
+        figure: &4 !ruby/object:Rook
+          moves: 0
+          x: 0
+          y: 0
+          owner: black
+          sign: "♜"
+      - &5 !ruby/object:Tile
+        x: 1
+        y: 0
+        color: "□"
+        figure: &6 !ruby/object:Knight
+          moves: 0
+          x: 1
+          y: 0
+          owner: black
+          sign: "♞"
+      - &7 !ruby/object:Tile
+        x: 2
+        y: 0
+        color: "■"
+        figure: &8 !ruby/object:Bishop
+          moves: 0
+          x: 2
+          y: 0
+          owner: black
+          sign: "♝"
+      - &9 !ruby/object:Tile
+        x: 3
+        y: 0
+        color: "□"
+        figure: &10 !ruby/object:Queen
+          moves: 0
+          x: 3
+          y: 0
+          owner: black
+          sign: "♛"
+      - &11 !ruby/object:Tile
+        x: 4
+        y: 0
+        color: "■"
+        figure: &12 !ruby/object:King
+          moves: 0
+          x: 4
+          y: 0
+          owner: black
+          sign: "♚"
+      - &13 !ruby/object:Tile
+        x: 5
+        y: 0
+        color: "□"
+        figure: &14 !ruby/object:Bishop
+          moves: 0
+          x: 5
+          y: 0
+          owner: black
+          sign: "♝"
+      - &15 !ruby/object:Tile
+        x: 6
+        y: 0
+        color: "■"
+        figure: &16 !ruby/object:Knight
+          moves: 0
+          x: 6
+          y: 0
+          owner: black
+          sign: "♞"
+      - &17 !ruby/object:Tile
+        x: 7
+        y: 0
+        color: "□"
+        figure: &18 !ruby/object:Rook
+          moves: 0
+          x: 7
+          y: 0
+          owner: black
+          sign: "♜"
+    - - &19 !ruby/object:Tile
+        x: 0
+        y: 1
+        color: "□"
+        figure: &20 !ruby/object:Pawn
+          moves: 0
+          x: 0
+          y: 1
+          owner: black
+          sign: "♟"
+      - &21 !ruby/object:Tile
+        x: 1
+        y: 1
+        color: "■"
+        figure: &22 !ruby/object:Pawn
+          moves: 0
+          x: 1
+          y: 1
+          owner: black
+          sign: "♟"
+      - &23 !ruby/object:Tile
+        x: 2
+        y: 1
+        color: "□"
+        figure: &24 !ruby/object:Pawn
+          moves: 0
+          x: 2
+          y: 1
+          owner: black
+          sign: "♟"
+      - &25 !ruby/object:Tile
+        x: 3
+        y: 1
+        color: "■"
+        figure: &26 !ruby/object:Pawn
+          moves: 0
+          x: 3
+          y: 1
+          owner: black
+          sign: "♟"
+      - &27 !ruby/object:Tile
+        x: 4
+        y: 1
+        color: "□"
+        figure: &28 !ruby/object:Pawn
+          moves: 0
+          x: 4
+          y: 1
+          owner: black
+          sign: "♟"
+      - &29 !ruby/object:Tile
+        x: 5
+        y: 1
+        color: "■"
+        figure: &30 !ruby/object:Pawn
+          moves: 0
+          x: 5
+          y: 1
+          owner: black
+          sign: "♟"
+      - &31 !ruby/object:Tile
+        x: 6
+        y: 1
+        color: "□"
+        figure: &32 !ruby/object:Pawn
+          moves: 0
+          x: 6
+          y: 1
+          owner: black
+          sign: "♟"
+      - &33 !ruby/object:Tile
+        x: 7
+        y: 1
+        color: "■"
+        figure: &34 !ruby/object:Pawn
+          moves: 0
+          x: 7
+          y: 1
+          owner: black
+          sign: "♟"
+    - - &35 !ruby/object:Tile
+        x: 0
+        y: 2
+        color: "■"
+        figure: &36 !ruby/object:Empty {}
+      - &37 !ruby/object:Tile
+        x: 1
+        y: 2
+        color: "□"
+        figure: &38 !ruby/object:Empty {}
+      - &39 !ruby/object:Tile
+        x: 2
+        y: 2
+        color: "■"
+        figure: &40 !ruby/object:Empty {}
+      - &41 !ruby/object:Tile
+        x: 3
+        y: 2
+        color: "□"
+        figure: &42 !ruby/object:Empty {}
+      - &43 !ruby/object:Tile
+        x: 4
+        y: 2
+        color: "■"
+        figure: &44 !ruby/object:Empty {}
+      - &45 !ruby/object:Tile
+        x: 5
+        y: 2
+        color: "□"
+        figure: &46 !ruby/object:Empty {}
+      - &47 !ruby/object:Tile
+        x: 6
+        y: 2
+        color: "■"
+        figure: &48 !ruby/object:Empty {}
+      - &49 !ruby/object:Tile
+        x: 7
+        y: 2
+        color: "□"
+        figure: &50 !ruby/object:Empty {}
+    - - &51 !ruby/object:Tile
+        x: 0
+        y: 3
+        color: "□"
+        figure: &52 !ruby/object:Empty {}
+      - &53 !ruby/object:Tile
+        x: 1
+        y: 3
+        color: "■"
+        figure: &54 !ruby/object:Empty {}
+      - &55 !ruby/object:Tile
+        x: 2
+        y: 3
+        color: "□"
+        figure: &56 !ruby/object:Empty {}
+      - &57 !ruby/object:Tile
+        x: 3
+        y: 3
+        color: "■"
+        figure: &58 !ruby/object:Empty {}
+      - &59 !ruby/object:Tile
+        x: 4
+        y: 3
+        color: "□"
+        figure: &60 !ruby/object:Empty {}
+      - &61 !ruby/object:Tile
+        x: 5
+        y: 3
+        color: "■"
+        figure: &62 !ruby/object:Empty {}
+      - &63 !ruby/object:Tile
+        x: 6
+        y: 3
+        color: "□"
+        figure: &64 !ruby/object:Empty {}
+      - &65 !ruby/object:Tile
+        x: 7
+        y: 3
+        color: "■"
+        figure: &66 !ruby/object:Empty {}
+    - - &67 !ruby/object:Tile
+        x: 0
+        y: 4
+        color: "■"
+        figure: &68 !ruby/object:Empty {}
+      - &69 !ruby/object:Tile
+        x: 1
+        y: 4
+        color: "□"
+        figure: &70 !ruby/object:Empty {}
+      - &71 !ruby/object:Tile
+        x: 2
+        y: 4
+        color: "■"
+        figure: &72 !ruby/object:Empty {}
+      - &73 !ruby/object:Tile
+        x: 3
+        y: 4
+        color: "□"
+        figure: &74 !ruby/object:Empty {}
+      - &75 !ruby/object:Tile
+        x: 4
+        y: 4
+        color: "■"
+        figure: &76 !ruby/object:Empty {}
+      - &77 !ruby/object:Tile
+        x: 5
+        y: 4
+        color: "□"
+        figure: &78 !ruby/object:Empty {}
+      - &79 !ruby/object:Tile
+        x: 6
+        y: 4
+        color: "■"
+        figure: &80 !ruby/object:Empty {}
+      - &81 !ruby/object:Tile
+        x: 7
+        y: 4
+        color: "□"
+        figure: &82 !ruby/object:Empty {}
+    - - &83 !ruby/object:Tile
+        x: 0
+        y: 5
+        color: "□"
+        figure: &84 !ruby/object:Knight
+          moves: 0
+          x: 5
+          y: 0
+          owner: white
+          sign: "♘"
+      - &85 !ruby/object:Tile
+        x: 1
+        y: 5
+        color: "■"
+        figure: &86 !ruby/object:Empty {}
+      - &87 !ruby/object:Tile
+        x: 2
+        y: 5
+        color: "□"
+        figure: &88 !ruby/object:Empty {}
+      - &89 !ruby/object:Tile
+        x: 3
+        y: 5
+        color: "■"
+        figure: &90 !ruby/object:Empty {}
+      - &91 !ruby/object:Tile
+        x: 4
+        y: 5
+        color: "□"
+        figure: &92 !ruby/object:Empty {}
+      - &93 !ruby/object:Tile
+        x: 5
+        y: 5
+        color: "■"
+        figure: &94 !ruby/object:Empty {}
+      - &95 !ruby/object:Tile
+        x: 6
+        y: 5
+        color: "□"
+        figure: &96 !ruby/object:Empty {}
+      - &97 !ruby/object:Tile
+        x: 7
+        y: 5
+        color: "■"
+        figure: &98 !ruby/object:Empty {}
+    - - &99 !ruby/object:Tile
+        x: 0
+        y: 6
+        color: "■"
+        figure: &100 !ruby/object:Pawn
+          moves: 0
+          x: 0
+          y: 6
+          owner: white
+          sign: "♙"
+      - &101 !ruby/object:Tile
+        x: 1
+        y: 6
+        color: "□"
+        figure: &102 !ruby/object:Pawn
+          moves: 0
+          x: 1
+          y: 6
+          owner: white
+          sign: "♙"
+      - &103 !ruby/object:Tile
+        x: 2
+        y: 6
+        color: "■"
+        figure: &104 !ruby/object:Pawn
+          moves: 0
+          x: 2
+          y: 6
+          owner: white
+          sign: "♙"
+      - &105 !ruby/object:Tile
+        x: 3
+        y: 6
+        color: "□"
+        figure: &106 !ruby/object:Pawn
+          moves: 0
+          x: 3
+          y: 6
+          owner: white
+          sign: "♙"
+      - &107 !ruby/object:Tile
+        x: 4
+        y: 6
+        color: "■"
+        figure: &108 !ruby/object:Pawn
+          moves: 0
+          x: 4
+          y: 6
+          owner: white
+          sign: "♙"
+      - &109 !ruby/object:Tile
+        x: 5
+        y: 6
+        color: "□"
+        figure: &110 !ruby/object:Pawn
+          moves: 0
+          x: 5
+          y: 6
+          owner: white
+          sign: "♙"
+      - &111 !ruby/object:Tile
+        x: 6
+        y: 6
+        color: "■"
+        figure: &112 !ruby/object:Pawn
+          moves: 0
+          x: 6
+          y: 6
+          owner: white
+          sign: "♙"
+      - &113 !ruby/object:Tile
+        x: 7
+        y: 6
+        color: "□"
+        figure: &114 !ruby/object:Pawn
+          moves: 0
+          x: 7
+          y: 6
+          owner: white
+          sign: "♙"
+    - - &115 !ruby/object:Tile
+        x: 0
+        y: 7
+        color: "□"
+        figure: &116 !ruby/object:Rook
+          moves: 0
+          x: 0
+          y: 7
+          owner: white
+          sign: "♖"
+      - &117 !ruby/object:Tile
+        x: 1
+        y: 7
+        color: "■"
+        figure: &118 !ruby/object:Empty {}
+      - &119 !ruby/object:Tile
+        x: 2
+        y: 7
+        color: "□"
+        figure: &120 !ruby/object:Bishop
+          moves: 0
+          x: 2
+          y: 7
+          owner: white
+          sign: "♗"
+      - &121 !ruby/object:Tile
+        x: 3
+        y: 7
+        color: "■"
+        figure: &122 !ruby/object:Queen
+          moves: 0
+          x: 3
+          y: 7
+          owner: white
+          sign: "♕"
+      - &123 !ruby/object:Tile
+        x: 4
+        y: 7
+        color: "□"
+        figure: &124 !ruby/object:King
+          moves: 0
+          x: 4
+          y: 7
+          owner: white
+          sign: "♔"
+      - &125 !ruby/object:Tile
+        x: 5
+        y: 7
+        color: "■"
+        figure: &126 !ruby/object:Bishop
+          moves: 0
+          x: 5
+          y: 7
+          owner: white
+          sign: "♗"
+      - &127 !ruby/object:Tile
+        x: 6
+        y: 7
+        color: "□"
+        figure: &128 !ruby/object:Knight
+          moves: 0
+          x: 6
+          y: 7
+          owner: white
+          sign: "♘"
+      - &129 !ruby/object:Tile
+        x: 7
+        y: 7
+        color: "■"
+        figure: &130 !ruby/object:Rook
+          moves: 0
+          x: 7
+          y: 7
+          owner: white
+          sign: "♖"
+    column_count: 8
+:white: &2 !ruby/object:Player
+  color: white
+  name: Will
+:black: &1 !ruby/object:Player
+  color: black
+  name: Dude
+:current: *1
+:other: *2
+:tile00: *3
+:figure00: *4
+:tile01: *5
+:figure01: *6
+:tile02: *7
+:figure02: *8
+:tile03: *9
+:figure03: *10
+:tile04: *11
+:figure04: *12
+:tile05: *13
+:figure05: *14
+:tile06: *15
+:figure06: *16
+:tile07: *17
+:figure07: *18
+:tile10: *19
+:figure10: *20
+:tile11: *21
+:figure11: *22
+:tile12: *23
+:figure12: *24
+:tile13: *25
+:figure13: *26
+:tile14: *27
+:figure14: *28
+:tile15: *29
+:figure15: *30
+:tile16: *31
+:figure16: *32
+:tile17: *33
+:figure17: *34
+:tile20: *35
+:figure20: *36
+:tile21: *37
+:figure21: *38
+:tile22: *39
+:figure22: *40
+:tile23: *41
+:figure23: *42
+:tile24: *43
+:figure24: *44
+:tile25: *45
+:figure25: *46
+:tile26: *47
+:figure26: *48
+:tile27: *49
+:figure27: *50
+:tile30: *51
+:figure30: *52
+:tile31: *53
+:figure31: *54
+:tile32: *55
+:figure32: *56
+:tile33: *57
+:figure33: *58
+:tile34: *59
+:figure34: *60
+:tile35: *61
+:figure35: *62
+:tile36: *63
+:figure36: *64
+:tile37: *65
+:figure37: *66
+:tile40: *67
+:figure40: *68
+:tile41: *69
+:figure41: *70
+:tile42: *71
+:figure42: *72
+:tile43: *73
+:figure43: *74
+:tile44: *75
+:figure44: *76
+:tile45: *77
+:figure45: *78
+:tile46: *79
+:figure46: *80
+:tile47: *81
+:figure47: *82
+:tile50: *83
+:figure50: *84
+:tile51: *85
+:figure51: *86
+:tile52: *87
+:figure52: *88
+:tile53: *89
+:figure53: *90
+:tile54: *91
+:figure54: *92
+:tile55: *93
+:figure55: *94
+:tile56: *95
+:figure56: *96
+:tile57: *97
+:figure57: *98
+:tile60: *99
+:figure60: *100
+:tile61: *101
+:figure61: *102
+:tile62: *103
+:figure62: *104
+:tile63: *105
+:figure63: *106
+:tile64: *107
+:figure64: *108
+:tile65: *109
+:figure65: *110
+:tile66: *111
+:figure66: *112
+:tile67: *113
+:figure67: *114
+:tile70: *115
+:figure70: *116
+:tile71: *117
+:figure71: *118
+:tile72: *119
+:figure72: *120
+:tile73: *121
+:figure73: *122
+:tile74: *123
+:figure74: *124
+:tile75: *125
+:figure75: *126
+:tile76: *127
+:figure76: *128
+:tile77: *129
+:figure77: *130

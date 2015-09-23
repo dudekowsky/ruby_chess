@@ -1,11 +1,10 @@
 require "matrix"
-require "yaml"
 class Matrix
   public :"[]=", :set_element, :set_component
 end
 
 class Board
-  attr_reader :board
+  attr_accessor :board
   def initialize
     @board = create_board
     puts "The ones you can see through are 'white', the full whites are 'black'."
